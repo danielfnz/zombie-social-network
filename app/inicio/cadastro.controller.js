@@ -1,5 +1,5 @@
 angular
-    .module('zombieApp')
+    .module('app')
     .controller('cadastroController', cadastroController);
 
 function cadastroController($scope) { 

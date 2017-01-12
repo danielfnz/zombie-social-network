@@ -1,12 +1,15 @@
-angular.module("zombieApp", ['ngRoute'])
+(function() {
+    'use strict';
+
+angular.module('app', ['ngRoute'])
 .config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "paginas/inicio/inicio.html",
+        templateUrl : "app/inicio/inicio.html",
         controller:"inicioController"
     })
     .when("/cadastro", {
-        templateUrl : "paginas/cadastro/cadastro.html"
+        templateUrl : "/cadastro.html"
     })
     .when("/green", {
         templateUrl : "green.htm"
@@ -16,3 +19,5 @@ angular.module("zombieApp", ['ngRoute'])
     });
     
 });
+
+})();

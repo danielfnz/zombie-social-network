@@ -1,5 +1,5 @@
 angular
-    .module('zombieApp')
+    .module('app')
     .controller('inicioController', inicioController);
 
 function inicioController($scope) { 
