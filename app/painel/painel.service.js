@@ -1,5 +1,5 @@
 angular
-    .module('app.service',[])
+    .module('painel.service',[])
     .factory('dataservice', dataservice);
 
 dataservice.$inject = ['$http', 'logger'];

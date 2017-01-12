@@ -4,7 +4,7 @@
     angular.module('app', [
         'ngRoute',
         'ngMap',
-        'app.service',
+        'app.inicio',
     ]);
 
 })();
