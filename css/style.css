@@ -1,0 +1,202 @@
+body {
+    background-color:#000;
+    color: #fff;
+}
+.conteudo {
+    margin-top: 50px;
+}
+.angular-google-map-container { height: 400px; }
+.btn-custom {
+  background-color: #EC001C;
+  border-color: #EC001C;
+  color: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #d30019;
+  border-color: #b90016;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #EC001C;
+  border-color: #EC001C;
+}
+
+.navbar-custom {
+    background-color:#ac0018;
+    color:#ffffff;
+    border-radius:0;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: black !important;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+
+.estatistica {
+    padding: 20px;
+    color: #ac0018;
+    text-align: center;
+    background-color: #000;
+}
+.estatistica2 {
+    padding: 20px;
+    color: #000;
+    text-align: center;
+    background-color: #ac0018;
+}
+.troca {
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    background-position: right; 
+    background-repeat: no-repeat;
+    background-color: #ac0018;
+    background-image: url(../imagens/municao.jpg);
+}
+.troca p {
+    width: 50%;
+}
+.sobreviventes {
+    padding: 20px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+.sobreviventes-info h3{
+    margin:30px;
+    color:#2b2b2b;
+    font-size:25px;
+    font-weight:300;
+    letter-spacing: 12px;
+}
+.sobreviventes-mapa {
+    margin-top: 50px;
+}
+.modal {
+    color: #ac0018;
+}
+
+.inventario {
+  background-color: #1f1f1f;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    width:70%;
+    margin-left:20px;
+}
+.inventario h2{
+  color:#fff;
+  margin: 0px;
+
+}
+.inventario .agua{
+ background: url('../imagens/invetorio/agua.png') no-repeat;
+    width: 25%;
+    height: 115px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+}
+.inventario .comida{
+ background: url('../imagens/invetorio/comida.png') no-repeat;
+    width: 25%;
+    height: 115px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+}
+.inventario .medicamento{
+ background: url('../imagens/invetorio/medicamento.png') no-repeat;
+    width: 25%;
+    height: 115px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+}
+.inventario .municao{
+ background: url('../imagens/invetorio/municao.png') no-repeat;
+    width: 25%;
+    height: 115px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+}
+
+
+.footer {
+    text-align: center;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    line-height: 100px; /* Vertically center the text there */
+    background-color: #000;
+    font-family: 'Lato', sans-serif;
+    font-size:18px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media(max-width:640px){
+
+.inventario {
+    width:90%;
+    margin-left:20px;
+}
+.sobreviventes-info h3{
+    color:#2b2b2b;
+    font-size:20px;
+    font-weight:300;
+    letter-spacing: 5px;
+}
+
+}
+@media(max-width:1024px){
+
+.inventario {
+    width:90%;
+    float:center;
+    margin:30px;
+}
+.inventario .agua {
+       width: 25%;
+}
+.inventario .comida {
+       width: 25%;
+}
+.inventario .medicamento {
+       width: 25%;
+}
+.inventario .municao {
+       width: 25%;
+}
+
+}
+
+
