@@ -1,0 +1,57 @@
+<div ng-include src="'app/login/login.view.html'"></div>
+    <div class="cadastro col-md-6">
+      <div class="row">   
+      <h1 style="text-align:center; padding:30px;">Cadastro de Sobreviventes</h1>
+       <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Nome</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Nome">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Idade</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputPassword3" placeholder="Idade">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-9">
+            <label>
+              <input type="radio" name="sexo" required="">
+              Feminino
+            </label>
+                   <label>
+              <input type="radio" name="sexo" required="">
+              Masculino
+            </label>
+          </div>
+        </div>
+          <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Localização</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="inputEmail3" placeholder="Longitude">
+              <input type="number" class="form-control" id="inputEmail3" placeholder="Latitude">
+          </div>
+        </div>
+          <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Inventário</label>
+          <div class="col-sm-9" style="width:70%;margin-left:20px;">
+          <div class="row inventario">
+            <div class="col-xs-6 col-sm-3 agua"><h2>0</h2></div>
+            <div class="col-xs-6 col-sm-3 comida"><h2>0</h2></div>
+            <div class="col-xs-6 col-sm-3 medicamento"><h2>0</h2></div>
+            <div class="col-xs-6 col-sm-3 municao"><h2>0</h2></div>
+          </div>
+
+        </div>
+        </div>
+
+        <div class="form-group" style="padding-top:20px;padding-bottom:20px;">
+          <div class="col-sm-offset-2 col-sm-9">
+            <button type="submit" class="btn btn-custom btn-lg btn-block">Me Cadastrar</button>
+          </div>
+        </div>
+      </form>
+    </div><!-- /.row -->
+    </div><!-- /.row -->

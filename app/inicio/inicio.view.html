@@ -1,3 +1,4 @@
+<div ng-include src="'app/login/login.view.html'"></div>
 <div id="Carousel" class="carousel slide" data-interval="8000" data-ride="carousel">
   <div class="carousel-inner">
     <div class="item active">
@@ -75,27 +76,25 @@
                 <div ng-repeat="item in inventario">
                  <a ng-click="item.count = item.count + 1">
                   <div class="col-xs-6 col-sm-3 {{item.name}}"><h2>{{item.count}}</h2></div>
-                 </a>
-               </div>
+                </a>
               </div>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer" >
-        <div class="col-sm-offset-2 col-sm-9" style="float:center;padding-top:10px;padding-bottom:10px;">   
-          <button type="button" class="btn btn-custom" ng-click="limparInventario()">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Limpar Inventário
-          </button>
-          <button type="submit" class="btn btn-custom"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Me Cadastrar</button>
         </div>
+      </form>
+    </div>
+    <div class="modal-footer" >
+      <div class="col-sm-offset-2 col-sm-9" style="float:center;padding-top:10px;padding-bottom:10px;">   
+        <button type="button" class="btn btn-custom" ng-click="limparInventario()">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Limpar Inventário
+        </button>
+        <button type="submit" class="btn btn-custom"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Me Cadastrar</button>
       </div>
     </div>
   </div>
 </div>
 </div>
-
-
+</div>
 
 <div class="container estatistica col-md-12">
   <div class="row">   
@@ -139,7 +138,7 @@
   <div class="strip text-center"><img src="public/imagens/mapa.png" alt=" "/></div>
   <div class="sobreviventes-mapa">
 
-  <ng-map center="[40.74, -74.18]"></ng-map>
+   <ng-map zoom="1" center="-11.436955216143177,-53.4375" on-click="placeMarker()">
 
   </div>
 </div>

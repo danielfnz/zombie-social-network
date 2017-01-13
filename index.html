@@ -23,13 +23,14 @@
   <![endif]-->
 </head>
 <body>
-  <div ng-include src="'app/layout/topMenu.html'"></div>
   <div ng-view class="conteudo"></div>
 
   <!-- Scripts -->
   <script src="public/libs/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular-route.min.js"></script>
+  <script src="https://rawgit.com/grevory/angular-local-storage/master/dist/angular-local-storage.min.js">
+  </script>
   <script src="public/libs/bootstrap.min.js"></script>
 
   <!-- Angular Maps -->
@@ -38,11 +39,16 @@
 
   <!-- APP -->
   <script src="app/app.module.js"></script>
-  <script src="app/app.rotas.js"></script>
 
   <!-- INICIO MODULO -->
   <script src="app/inicio/inicio.module.js"></script>
   <script src="app/inicio/inicio.controller.js"></script>
+  <script src="app/inicio/inicio.service.js"></script>
+
+    <!-- LOGIN MODULO -->
+  <script src="app/login/login.module.js"></script>
+  <script src="app/login/login.controller.js"></script>
+  <script src="app/login/login.service.js"></script>
 
   <!-- PAINEL MODULO -->
   <script src="app/painel/painel.module.js"></script>
