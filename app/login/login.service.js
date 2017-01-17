@@ -5,15 +5,17 @@
     .module('app.login')
     .factory('LoginService', LoginService);
     
-    function LoginService($http, $rootScope, localStorageService) {
+    function LoginService($http, $rootScope, localStorageService,$location,$window) {
         var service = {};
+        var EstaAutenticado = false;
         
         service.GetAll = GetAll;
         service.GetById = GetById;
         service.Create = Create;
         service.Update = Update;
-        service.SetCredenciais = SetCredenciais;
-        service.ResetCredenciais = ResetCredenciais;
+        service.SetAutenticado = setAutenticado;
+        service.GetAutenticado = getAutenticado;
+        service.ResetAutenticado = resetAutenticado;
         
         return service;
         
@@ -26,7 +28,7 @@
         }
         
         function Create(user) {
-            return $http.post('http://zssn-backend-example.herokuapp.com/api/people', {name:user.nome,age:user.age,gender:user.gender,lonlat:user.lonlat,items:user.itemns}).then(handleSuccess, handleError('Error creating user'));
+            return $http.post('http://zssn-backend-example.herokuapp.com/api/people', user).then(handleSuccess, handleError('Error creating user'));
         }
         
         function Update(user) {
@@ -40,17 +42,24 @@
         }
         
         function handleError(error) {
-            return function () {
+              return function () {
                 return { success: false, message: error };
             };
         }
 
-        function SetCredenciais(username) {   
-            localStorageService.set('user', username);           
+        function getAutenticado(){
+        return localStorageService.get('autenticado');
+        };
+
+        function setAutenticado(username) {   
+            localStorageService.set('user', username);  
+            localStorageService.set('autenticado', true);        
         } 
 
-        function ResetCredenciais() {   
-            localStorageService.clearAll();             
+        function resetAutenticado() {   
+            localStorageService.clearAll();    
+               $window.location.reload();
+            $location.path('/');             
         } 
     }
     

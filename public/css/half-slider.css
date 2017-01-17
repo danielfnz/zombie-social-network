@@ -43,3 +43,22 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
+@media(max-width:640px){  
+.carousel-caption {
+    background:rgba(0,0,0,0.0);
+} 
+.carousel-caption h1{
+  font-size: 20px;
+  margin-top: 30px;
+}    
+}
+@media(max-width:1024px){
+.carousel-caption {
+    background:rgba(0,0,0,0.0);
+} 
+.carousel-caption h1{
+  font-size: 20px;
+  margin-top: 30px;
+}      
+}
+

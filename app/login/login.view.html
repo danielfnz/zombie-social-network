@@ -1,17 +1,31 @@
   <header ng-controller="loginController as vm">
     <nav class="navbar navbar-custom navbar-fixed-top">
       <div class="container">
-        <div ng-if="logado">       
-          <div class="navbar-form navbar-right" >
-            <div class="form-group">
-              <button type="submit" class="btn btn-custom" ng-click="deslogar()"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Reportar Infectado</button>
-               <button type="submit" class="btn btn-custom" ng-click="deslogar()"><span class="glyphicon glyphicon-share" aria-hidden="true"></span> Trocar Items</button>
+        <!-- Mostra o menu apenas o usuário estivar autenticado -->
+        <div ng-show="logado">       
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar2" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">ZSSN</a>
+          </div>
+          <div class="navbar-form navbar-right navbar-collapse collapse" id="navbar2">
+            <div class="form-group" >
+              <a  class="btn btn-custom" ng-href="#/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Inicio</a>
+             <a  class="btn btn-custom" ng-href="#/painel"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Painel</a>
+             <a class="btn btn-custom" ng-href="#/painel/reportar" on><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Reportar Infectado</a>
+             <a type="submit" class="btn btn-custom"ng-href="#/painel/trocaritem"><span class="glyphicon glyphicon-share" aria-hidden="true"></span> Trocar Items</a>
              <button type="submit" class="btn btn-custom" ng-click="deslogar()"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Sair</button>
            </div>
          </div>
        </div>
      </div>
-     <div ng-if="!logado">
+     <!-- -->
+     <!-- Menu de login para usuário não autenticado -->
+     <div ng-show="!logado">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
@@ -19,17 +33,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">ZSSN</a>
+        <a class="navbar-brand" href="#/">ZSSN</a>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
 
-        <form class="navbar-form navbar-right" >
+      <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right" id="login" ng-submit="login.$valid;login(user)">
           <div class="form-group">
-            <input type="text" placeholder="Identificação unica" class="form-control" ng-model="user.identificacao">
+            <input type="text" placeholder="Identificação unica" class="form-control" ng-model="user.identificacao" autocomplete="on" required>
           </div>
-          <button type="submit" class="btn btn-custom" ng-click="login(user)">Acessar sistema <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+          <button type="submit" class="btn btn-custom">Acessar sistema <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
         </form>
       </div>
     </div>
+    <!-- -->
   </nav>
 </header>

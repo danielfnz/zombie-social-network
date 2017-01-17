@@ -5,26 +5,29 @@
 	.module('app.login')
 	.controller('loginController', loginController);
 
-function loginController($scope,LoginService,$location,$rootScope,localStorageService) { 
-	$scope.login =  function login(user) {
-		LoginService.GetById(user.identificacao).then(function(data) {
-			if (!data.message) { 
-				LoginService.SetCredenciais(data);
-				$location.path('/painel');
-			} else {
+	function loginController($scope,LoginService,$location,$rootScope,NgMap) {
 
-			}
-		});
+		//Verifica se o usuário esta autenticado
+		$scope.logado = LoginService.GetAutenticado();
+
+		//Função responsavel por realizar o login do sobrevivente
+		$scope.login =  function login(user) {
+			LoginService.GetById(user.identificacao).then(function(data) {
+				if (!data.message) { 		
+				//Autenticado com sucesso
+					LoginService.SetAutenticado(data);
+					$location.path('/painel');
+				} else {
+				//Falha na autenticação
+				}
+			});
+		}
+
+		//Realiza logout do usuário
+		$scope.deslogar = function deslogar(){
+			LoginService.ResetAutenticado();	
+		} 
+
 	}
-	
-	$scope.logado = localStorageService.get('user');
-
-	$scope.deslogar = function deslogar(){
-		localStorageService.clearAll(); 
-		$location.path('/');
-	}
-
-
-}
 
 })();

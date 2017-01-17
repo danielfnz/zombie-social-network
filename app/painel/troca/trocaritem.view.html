@@ -1,0 +1,73 @@
+<div ng-include src="'app/login/login.view.html'"></div>
+ <flash-message show-close="true"></flash-message>
+<div class="troca-area col-md-6">
+	<h1 style="text-align:center; padding:30px;">Area de troca de items</h1>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-md-9 buscaInfectado">
+					<label>Encontre o sobrevivente para realizar a troca</label>
+					<ui-select ng-model="trocaPerson.nome" theme="bootstrap">
+					<ui-select-match placeholder="Buscar pelo nome">{{$select.selected.name}}</ui-select-match> 
+					<ui-select-choices repeat="item in todosSobreviventes | filter: $select.search |limitTo : 20 ">
+					<div ng-bind-html="item.name | highlight: $select.search"></div>
+					<small>Idade: <span ng-bind-html="item.age  | highlight: $select.search"></span></small>
+					</ui-select-choices>
+				</ui-select>	  	
+				</div>
+			</div>
+			<div class="form-group" style="margin-top:50px;">
+				<div class="col-md-1" >	</div>
+				<div class="col-md-4 painel" >
+					<h4 style="text-align:center;">Preciso</h4>
+					<div class="row">
+						<div ng-repeat="item in itemsCompra">	
+							<a ng-click="item.count = item.count + 1;addPontosCompra(item.name)">					
+								<div class="col-xs-6 col-sm-3 {{item.name}}"><h2>{{item.count}}</h2></div>	
+							</a>		
+						</div>
+					</div>
+					<h5>Total de Pontos: <strong>{{pontosCompra}}</strong></h5>
+				</div>
+				<div class="col-md-2" ></div>
+				<div class="col-md-4 painel"  >
+					<h4 style="text-align:center;">Pagamento</h4>
+					<div class="row">
+						<div ng-repeat="item in itemsPagamento">
+							<a ng-click="item.count = item.count + 1;addPontosPagamento(item.name)">		
+								<div class="col-xs-6 col-sm-3 {{item.name}}"><h2>{{item.count}}</h2></div>
+							</a>		
+						</div>
+					</div>
+					<h5>Total de Pontos: <strong>{{pontosPagamento}}</strong></h5>
+				</div>
+				<div class="col-md-1" ></div>
+		</div>
+
+		<div class="col-md-12 text-center " style=" padding:30px;">  	
+			<button type="submit" class="btn btn-custom" ng-click="limparItems()"><span class="glyphicon glyphicon-share" aria-hidden="true"> </span> Limpar items</button>
+			<button type="submit" class="btn btn-custom" ng-click="realizarTroca()"><span class="glyphicon glyphicon-share" aria-hidden="true"> </span> Realizar Troca</button>
+		</div>
+	</form>
+</div>
+
+<div class="troca-inventario col-md-4">
+	<div class="row">   
+		<h1 style="text-align:center;  padding:20px;">Meu inventário</h1>
+		<div class="form-group">
+			<div class="col-md-12 painel">
+				<div class="row">
+					<div ng-repeat="item in inventario">
+						<div class="col-xs-3 col-sm-3 {{item.item.name}}"><h2>{{item.quantity}}</h2></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-12" style="text-align:right;padding-top:20px;">
+				<h4>Total de Pontos: <strong>{{meusPontosTotais}}</strong></h4>
+			</div>
+		</div>
+	</div>
+</div>
+
+

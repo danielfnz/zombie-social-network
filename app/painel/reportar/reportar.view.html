@@ -1,0 +1,29 @@
+<div ng-include src="'app/login/login.view.html'"></div>
+<!-- Painel -->
+<div class="Painel col-md-6">
+	<div class="row">
+	 <flash-message show-close="true"></flash-message>   
+		<h1 style="text-align:center; padding:30px;">Reportar Sobrevivente Infectado</h1>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-md-9 buscaInfectado">
+				<!-- Chama a biblioteca ui-select para realizar a busca -->
+					<ui-select ng-model="sobrevivente.Infectado" theme="bootstrap" required="true">
+					<ui-select-match placeholder="Pesquise pelo nome do infectado">{{$select.selected.name}}</ui-select-match>
+					<ui-select-choices repeat="item in todosSobreviventes | filter: $select.search |limitTo : 20 ">
+					<div ng-bind-html="item.name | highlight: $select.search"></div>
+					<small>
+			          Idade: <span ng-bind-html="item.age  | highlight: $select.search"></span>
+		        </small>
+				</ui-select-choices>
+			</ui-select>		
+		</div>
+	</div>
+
+	<div class="botoes col-md-12 text-center">  
+		<button type="submit" class="btn btn-custom" ng-click="reportarInfectado(sobrevivente)"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Reportar como infectado</button>
+	</div>
+</form>
+</div>
+</div>
+
