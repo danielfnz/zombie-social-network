@@ -5,7 +5,7 @@
 	.module('app.cadastro')
 	.controller('cadastroController', cadastroController);
 
-	function cadastroController($scope,CadastroService,LoginService,$location,NgMap) {	
+	function cadastroController($scope,CadastroService,LoginService,$location,NgMap,$mdDialog) {	
 
 	//Declaração do inventario
 	$scope.inventario = [
@@ -44,7 +44,17 @@
 	        $location.path('/painel');
 	      } else {
 	      	//Erro na criação do usuário
-	        console.log("Erro na criação do usuário");
+	      	$mdDialog.show(
+	      		$mdDialog.alert()
+	      		.clickOutsideToClose(true)
+	      		.title('Erro ao registrar novo sobrevivente')
+	      		.textContent('Esse sobrevivente já esta cadastrado')
+	      		.ok('Ok')
+            // You can specify either sting with query selector
+            .openFrom('#left')
+            // or an element
+            .closeTo(angular.element(document.querySelector('#right')))
+            );
 	      }
 	    });
   	}
