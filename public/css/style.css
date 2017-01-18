@@ -33,6 +33,9 @@ a:link {
   background-color: #d30019;
   border-color: #b90016;
 }
+.btn-custom:focus,.btn-custom:active {
+   outline: none !important;
+}
 .btn-custom.disabled:hover,
 .btn-custom.disabled:focus,
 .btn-custom.disabled:active,
