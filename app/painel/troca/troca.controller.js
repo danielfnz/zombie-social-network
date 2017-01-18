@@ -5,7 +5,7 @@
 	.module('app.painel.troca')
 	.controller('trocaController', trocaController);
 
-	function trocaController($scope,NgMap,PainelService,$rootScope,localStorageService,Flash,$location,$anchorScroll) { 
+	function trocaController($scope,NgMap,PainelService,$rootScope,localStorageService,$mdDialog) { 
 
 		//Declaração de variaveis utilizadas no painel de troca
 		$scope.pontosCompra =0; 
@@ -24,12 +24,16 @@
 		{name:'Ammunition', count:0}
 		];
 
+	$scope.itemQuantidade1 = true;
 		//Busca na API os items atuais do sobrevivente autenticado
 		PainelService.GetMyItems().then(function(items){
 			$scope.inventario = items;
 			$scope.meusPontosTotais = 0;
 
 			angular.forEach(items, function(value, key) {
+				if(value.quantity==1){
+				$scope.itemQuantidade1 = false;
+				}
 				$scope.meusPontosTotais += (value.item.points * value.quantity);
 			});
 		});
@@ -129,26 +133,41 @@
 		PainelService.RealizarTroca(data).then(function(data){
 			if(data==""){
 				//Troca realizada com sucesso!
-				var message = '<strong> Parabens! A troca de items foi um sucesso!</strong> ';
-	        	Flash.create('success', message, 0, {class: 'custom-class', id: 'mensagem'}, true);
+				$mdDialog.show(
+		          $mdDialog.alert()
+		          .clickOutsideToClose(true)
+		          .title('Troca realizada com sucesso!')
+		          .textContent('Parabens! A troca de items foi um sucesso!')
+		          .ok('Ok')
+		          .openFrom('#left')
+		          .closeTo(angular.element(document.querySelector('#right')))
+		        );		        
 			}
 			else {
 				//Falha na troca
-			 	var message = '<strong> Ops, não foi possivel realizar a troca dos items!</strong> ';
-        		Flash.create('danger', message, 0, {class: 'custom-class', id: 'mensagem'}, true);
+				$mdDialog.show(
+		          $mdDialog.alert()
+		          .clickOutsideToClose(true)
+		          .title('Falha ao realizar a troca de items')
+		          .textContent('Ops, não foi possivel realizar a troca dos items!')
+		          .ok('Ok')
+	              .openFrom('#left')
+	              .closeTo(angular.element(document.querySelector('#right')))
+		        );
 			}
-				//Focus na mensagem
-			  	$location.hash('mensagem');
-      			$anchorScroll();
 		});
 		}		
 		//Caso o usuário não tenha selecionado um sobrevivente para realizar a troca, emite esse erro
 		else {
-			 	var message = '<strong> Você esqueceu de selecionar o sobrevivente!</strong> ';
-    			Flash.create('danger', message, 0, {class: 'custom-class', id: 'mensagem'}, true);
-    			//Focus na mensagem
-    			$location.hash('mensagem');
-      			$anchorScroll();
+			$mdDialog.show(
+				$mdDialog.alert()
+				.clickOutsideToClose(true)
+				.title('Erro ao selecionar sobrevivente')
+				.textContent('Você esqueceu de selecionar o sobrevivente!')
+				.ok('Ok')
+	            .openFrom('#left')
+	            .closeTo(angular.element(document.querySelector('#right')))
+		    );
 		}
 		};
 	}

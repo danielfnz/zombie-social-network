@@ -5,7 +5,7 @@
 	.module('app.login')
 	.controller('loginController', loginController);
 
-	function loginController($scope,LoginService,$location,$rootScope,NgMap) {
+	function loginController($scope,LoginService,$location) {
 
 		//Verifica se o usuário esta autenticado
 		$scope.logado = LoginService.GetAutenticado();

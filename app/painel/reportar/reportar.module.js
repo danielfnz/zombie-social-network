@@ -3,7 +3,6 @@
 
     angular.module('app.painel.reportar', [
   		'ui.select',
-  		'ngSanitize',
-  		'ngFlash'
+  		'ngSanitize'
         ]);
 })();

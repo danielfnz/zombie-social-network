@@ -3,7 +3,6 @@
 
     angular.module('app.painel.troca', [
   		'ui.select',
-  		'ngSanitize',
-  		'ngFlash'
+  		'ngSanitize'
         ]);
 })();
