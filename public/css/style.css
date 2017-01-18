@@ -394,8 +394,20 @@ padding: 20px;
 }
 
 @media(max-width:640px){
+.Painel {
+  margin: 0;
+}  
+.inventario {
+    width: 90%;
+    float:center;
+}
 
-  
+.sobreviventes-info h3{
+    color:#2b2b2b;
+    font-size:20px;
+    font-weight:300;
+    letter-spacing: 5px;
+}
 
 .troca-area {
   margin: 10px;
@@ -420,27 +432,7 @@ padding: 20px;
   float: none;
   margin: 30px auto;
 }
-
-.inventario {
-    width:100%;
-    float:center;
-    margin: 0;
-}
-.sobreviventes-info h3{
-    color:#2b2b2b;
-    font-size:20px;
-    font-weight:300;
-    letter-spacing: 5px;
 }
 
-}
-@media(max-width:1024px){
-.inventario {
-    width:100%;
-    float:center;
-    padding: 0;
-}
-
-}
 
 
