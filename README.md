@@ -1,4 +1,5 @@
 # ZSSN (Zombie Survival Social Network) - Frontend
+# ANGULARJS
 
 ## Problem Description
 
