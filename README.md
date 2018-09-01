@@ -1,5 +1,8 @@
 # ZSSN (Zombie Survival Social Network) - Frontend (ANGULARJS)
 
+## Link da Vaga
+https://github.com/frontendbr/vagas/issues/457
+
 ## Problem Description
 
 The world as we know it has fallen into an apocalyptic scenario. A laboratory-made virus is transforming human beings and animals into zombies, hungry for fresh flesh.
